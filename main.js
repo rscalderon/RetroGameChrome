@@ -5,27 +5,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftBoard = document.querySelector('#leftBoard')
     const rightBoard = document.querySelector('#rightBoard')
 
-    const playerLeft = new paddle(leftBoard);
-    const playerRight = new paddle(rightBoard);
+    const rightScoreBox = document.querySelector('#scoreBoxRight');
+    const leftScoreBox = document.querySelector('#scoreBoxLeft');
 
-    const sphere = new ball(board);
+    // const [rightScoreBox, leftScoreBox] = [document.querySelector('#scoreBoxRight'), document.querySelector('#scoreBoxLeft') ]
+
+    const playerLeft = new paddle(leftBoard);
+    let leftScore = 0;
+    
+    const playerRight = new paddle(rightBoard);
+    let rightScore = 0;
+
+    // setInterval(() => console.log(playerRight.boundInfoPasser()), 500);
+
+    let sphere = new ball(board, playerLeft.boundInfoPasser, playerRight.boundInfoPasser, rightScoreBox, leftScoreBox);
 
     //   console.log(playerLeft);
     //   console.log(playerRight);
+    
+    // check if sphere is out of bounds on left and right, in which case respawn new ball
+    // setInterval(() => {
+    //    console.log('setInterval works');
+    //     if (sphere.leftPosition > 1200 ) {
+    //         delete sphere.node;
+    //         sphere = new ball(board, playerLeft.boundInfoPasser, playerRight.boundInfoPasser);
+    //         rightScore++;
+    //         console.log('Player right score');
+    //     }
+    //     if (sphere.leftPosition < 0) {
+    //         delete sphere.node;
+    //         sphere = new ball(board, playerLeft.boundInfoPasser, playerRight.boundInfoPasser);
+    //         leftScore++;
+    //         console.log('Player left score');
+    //     }
+    // }, 5);
 
     body.addEventListener('keydown', (e) => {
         if (e.code === 'KeyW') {
-            console.log('pressed w');
             playerLeft.currentDirection = 'up';
         } else if (e.code === 'KeyS') {
-            console.log('pressed s');
             playerLeft.currentDirection = 'down';
         } else if (e.code === 'ArrowUp') {
-            console.log('pressed up');
             playerRight.currentDirection = 'up';
         } else if (e.code === 'ArrowDown') {
-            console.log('pressed down');
             playerRight.currentDirection = 'down';
+        } else if (e.code === 'KeyR') {
+            
         }
         sphere.boundBallInit();
     });

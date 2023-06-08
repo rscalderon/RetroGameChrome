@@ -1,0 +1,17 @@
+{
+    "name": "Retro Pong",
+    "version": "1.0.0",
+
+    "chrome_url_overrides" : {
+        "newtab": "index.html"
+    },
+    
+    "manifest_version": 3,
+    "author": "KJ and RC",
+    "action":{
+        "default_title": "Pong"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}

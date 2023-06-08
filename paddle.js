@@ -7,11 +7,13 @@ class paddle {
         el.appendChild(this.node);
 
         this.currentDirection = '';
-        this.SPEED = 10;
+        this.SPEED = 5;
 
         this.node.style.bottom = '200px';
 
-        console.log(el.offsetHeight);
+        this.boundInfoPasser = this.infoPasser.bind(this);
+
+        // console.log(el.offsetHeight);
 
         this.boundMove = this.move.bind(this);
         this.boundMove();
@@ -31,7 +33,7 @@ class paddle {
     //     head.style.left = `${(leftPosition -= 50)}px`;
     //   } 
       if (direction === 'up') {
-        if (bottomPos <= 815)
+        if (bottomPos <= 730)
         paddle.style.bottom = `${(bottomPos += 5)}px`;
     }
     if (direction === 'down') {
@@ -45,6 +47,8 @@ class paddle {
   
       setTimeout(this.move.bind(this), this.SPEED);
       // return leftPosition;
-
+    }
+    infoPasser() {
+        return Number(this.node.style.bottom.replace('px', ''));
     }
 }
