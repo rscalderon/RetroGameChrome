@@ -10,18 +10,18 @@ score {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: black;
-    height: 80vh;
+    height: 90vh;
     width: 80vw;
 }
 
 #leftBoard {
-    background-color: red;
+    background-color: black;
     border-right: 5px dashed white;
 }
 
 #rightBoard {
     display: flex;
-    background-color: green;
+    background-color: black;
     justify-content: flex-end;
 }
 
@@ -29,5 +29,13 @@ score {
     background: white;
     position: absolute;
     width: 20px;
-    height: 5rem;
+    height: 160px;
+}
+
+#ball {
+    background: white;
+    position: absolute;
+    border-radius: 1px;
+    width: 20px;
+    height: 20px;
 }
