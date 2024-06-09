@@ -1,1 +1,1 @@
-# Pong Clone
+# Pong for Chrome
